@@ -1,0 +1,71 @@
+apiVersion: eksctl.io/v1alpha5
+availabilityZones:
+- us-east-1b
+- us-east-1a
+cloudWatch:
+  clusterLogging: {}
+iam:
+  vpcResourceControllerPolicy: true
+  withOIDC: false
+kind: ClusterConfig
+kubernetesNetworkConfig:
+  ipFamily: IPv4
+managedNodeGroups:
+- amiFamily: AmazonLinux2
+  desiredCapacity: 2
+  disableIMDSv1: false
+  disablePodIMDS: false
+  iam:
+    withAddonPolicies:
+      albIngress: false
+      appMesh: false
+      appMeshPreview: false
+      autoScaler: false
+      awsLoadBalancerController: false
+      certManager: false
+      cloudWatch: false
+      ebs: false
+      efs: false
+      externalDNS: false
+      fsx: false
+      imageBuilder: false
+      xRay: false
+  instanceSelector: {}
+  instanceType: t3.medium
+  labels:
+    alpha.eksctl.io/cluster-name: EKS-DevSecOps-TrendMicroWorkshop
+    alpha.eksctl.io/nodegroup-name: AmazonLinux
+  maxSize: 3
+  minSize: 2
+  name: AmazonLinux
+  privateNetworking: false
+  releaseVersion: ""
+  securityGroups:
+    withLocal: null
+    withShared: null
+  ssh:
+    allow: false
+    publicKeyPath: ""
+  tags:
+    alpha.eksctl.io/nodegroup-name: AmazonLinux
+    alpha.eksctl.io/nodegroup-type: managed
+  volumeIOPS: 3000
+  volumeSize: 80
+  volumeThroughput: 125
+  volumeType: gp3
+metadata:
+  name: EKS-DevSecOps-TrendMicroWorkshop
+  region: us-east-1
+  version: "1.27"
+privateCluster:
+  enabled: false
+  skipEndpointCreation: false
+vpc:
+  autoAllocateIPv6: false
+  cidr: 192.168.0.0/16
+  clusterEndpoints:
+    privateAccess: false
+    publicAccess: true
+  manageSharedNodeSecurityGroupRules: true
+  nat:
+    gateway: Disable
