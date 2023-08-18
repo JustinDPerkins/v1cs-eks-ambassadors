@@ -39,6 +39,11 @@ eksctl create cluster --config-file=eks-creation.yaml
 - Select ** + Add Cluster**.
 - Follow the Install Wizard.
 
+![Scanner-Multi-Region](images/wizard1.jpg)
+![Scanner-Multi-Region](images/wizard2.jpg)
 ![Scanner-Multi-Region](images/eks2.jpg)
+
+### 4. View your Cluster Inventory.
+
 ![Scanner-Multi-Region](images/eks-final.jpg)
 
