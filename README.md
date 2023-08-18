@@ -33,8 +33,12 @@ chmod 700 get_helm.sh
 ```
 eksctl create cluster --config-file=eks-creation.yaml
 ```
+![Scanner-Multi-Region](images/eks1.jpg)
 
 ### 3. In **Vision One > Cloud Security Operations > Container Security > Container Inventory**.
 - Select ** + Add Cluster**.
 - Follow the Install Wizard.
+
+![Scanner-Multi-Region](images/eks2.jpg)
+![Scanner-Multi-Region](images/eks-final.jpg)
 
