@@ -47,3 +47,34 @@ eksctl create cluster --config-file=eks-creation.yaml
 
 ![Scanner-Multi-Region](images/eks-final.jpg)
 
+----
+
+Assign the LogOnly Policy to the Cluster and deploy the busybox.yaml
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+    name: busyboxpod
+    labels:
+        app: busyboxpod
+spec:
+    containers:
+    - image: busybox
+      command:
+          - sleep
+          - "3600"
+      imagePullPolicy: IfNotPresent
+      name: busybox-container
+      securityContext:
+          privileged: true
+    restartPolicy: Always
+```
+
+---
+
+Deploy busy box, then if you go to the Events tab in Cloud Security Operations > Container Security > Container Protection, you'll see logged events.:
+
+```
+kubectl apply -f busybox.yaml
+```
